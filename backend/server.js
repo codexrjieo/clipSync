@@ -24,13 +24,20 @@ app.use("/api/clipboards", clipboardRoutes);
 
 // Serve frontend build
 const __dirnamePath = path.resolve();
+const frontendPath = path.join(__dirnamePath, "../frontend/dist");
 
-// Serve static files from frontend/dist
-app.use(express.static(path.join(__dirnamePath, "../frontend/dist")));
+app.use(express.static(frontendPath));
 
-// All other routes → index.html (for React Router)
+// Only send index.html for non-API and non-static routes
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirnamePath, "../frontend/dist/index.html"));
+  const requestedPath = path.join(frontendPath, req.path);
+
+  // If the file exists, serve it directly
+  if (fs.existsSync(requestedPath)) {
+    res.sendFile(requestedPath);
+  } else {
+    res.sendFile(path.join(frontendPath, "index.html"));
+  }
 });
 
 app.listen(PORT, () => {
