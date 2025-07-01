@@ -12,7 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/create" element={<CreateClipboard />} />
-          <Route path="/clip/:clipId" element={<ClipboardAccess />} />
+          <Route path="/:clipId" element={<ClipboardAccess />} />
         </Routes>
       </div>
     </Router>
