@@ -23,10 +23,15 @@ mongoose
 app.use("/api/clipboards", clipboardRoutes);
 
 // Serve frontend build
-const staticPath = path.join(__dirname, "../frontend/dist");
-app.use(express.static(staticPath));
+const path = require("path");
+const __dirnamePath = path.resolve();
+
+// Serve static files from frontend/dist
+app.use(express.static(path.join(__dirnamePath, "../frontend/dist")));
+
+// All other routes → index.html (for React Router)
 app.get("*", (req, res) => {
-  res.sendFile(path.join(staticPath, "index.html"));
+  res.sendFile(path.join(__dirnamePath, "../frontend/dist/index.html"));
 });
 
 app.listen(PORT, () => {
