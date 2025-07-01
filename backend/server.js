@@ -23,7 +23,6 @@ mongoose
 app.use("/api/clipboards", clipboardRoutes);
 
 // Serve frontend build
-const path = require("path");
 const __dirnamePath = path.resolve();
 
 // Serve static files from frontend/dist
