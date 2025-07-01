@@ -7,7 +7,7 @@ require("dotenv").config();
 const clipboardRoutes = require("./routes/clipboards");
 
 const app = express();
-const PORT = process.env.PORT || 5050;
+const PORT = process.env.PORT || 10000;
 
 // Middleware
 app.use(cors());
