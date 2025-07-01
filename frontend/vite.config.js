@@ -12,5 +12,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "./", // 👈 ensures relative asset paths for Render
+  base: "/", // 👈 ensures relative asset paths for Render
 });
