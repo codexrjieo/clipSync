@@ -34,10 +34,10 @@ app.get("/api/health", (req, res) => {
 
 const __dirnamePath = path.resolve();
 
-app.use(express.static(path.join(__dirnamePath, "../frontend/dist")));
+app.use(express.static(path.join(__dirnamePath, "frontend/dist")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirnamePath, "../frontend/dist/index.html"));
+  res.sendFile(path.join(__dirnamePath, "frontend/dist/index.html"));
 });
 
 // Start server
