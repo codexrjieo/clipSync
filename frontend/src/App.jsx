@@ -12,7 +12,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/create" element={<CreateClipboard />} />
-          <Route path="/:clipId" element={<ClipboardAccess />} />
+          <Route path="/clip/:clipId" element={<ClipboardAccess />} />
+          {/* Catch-all route for unknown paths */}
+          <Route path="*" element={<Home />} />
         </Routes>
       </div>
     </Router>
